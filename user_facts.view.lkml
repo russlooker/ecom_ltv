@@ -31,7 +31,7 @@ view: user_facts {
 
   dimension: total_revenue_in_first_30_days {
     type: number
-    sql: ${TABLE}.total_revenue_in_first_30_days ;;
+    sql: COALESCE(${TABLE}.total_revenue_in_first_30_days,0) ;;
   }
 
   dimension: order_count {
