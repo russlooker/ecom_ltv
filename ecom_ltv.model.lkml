@@ -21,4 +21,8 @@ explore: order_items {
     relationship: many_to_one
     sql_on: ${user_facts.id} = ${orders.user_id} ;;
   }
+  join: ltv_predictions {
+    relationship: one_to_one
+    sql_on: ${orders.user_id} = ${ltv_predictions.user_id} ;;
+  }
 }

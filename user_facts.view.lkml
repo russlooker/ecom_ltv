@@ -21,6 +21,7 @@ view: user_facts {
   }
 
   dimension: id {
+    primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
   }
@@ -43,6 +44,12 @@ view: user_facts {
     type: number
     sql: ${TABLE}.total_revenue ;;
   }
+
+  measure: sum_total_revenue {
+    type: sum
+    sql: ${TABLE}.total_revenue ;;
+  }
+
 
   set: detail {
     fields: [id, orders_in_first_30_days, order_count, total_revenue]
