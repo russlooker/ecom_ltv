@@ -3,7 +3,7 @@ view: user_facts {
     sql: SELECT
          u.id
         , count(DISTINCT CASE WHEN o.created_at <= DATE_ADD( u.created_at , INTERVAL 30 DAY) THEN oi.order_id ELSE NULL END) orders_in_first_30_days
-        , sum(CASE WHEN o.created_at <= DATE_ADD( u.created_at , INTERVAL 30 DAY) THEN sale_price END) as total_revenue_in_first_30_days,
+        , sum(CASE WHEN o.created_at <= DATE_ADD( u.created_at , INTERVAL 30 DAY) THEN sale_price END) as total_revenue_in_first_30_days
         , count(DISTINCT oi.order_id ) as order_count
         , sum(sale_price) as total_revenue
 
