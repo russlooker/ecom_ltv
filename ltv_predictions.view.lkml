@@ -18,6 +18,13 @@ view: ltv_predictions {
     sql: ${ltv_prediction} ;;
     value_format_name: usd
   }
+
+  measure: remaining_projected_spend {
+    type: number
+    sql: ${sum_ltv_prediction} - ${user_facts.sum_total_revenue} ;;
+    value_format_name: usd
+  }
+
   measure: average_ltv_prediction {
     type: average
     sql: ${ltv_prediction} ;;

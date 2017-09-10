@@ -74,8 +74,23 @@ view: users {
     sql: ${TABLE}.zip ;;
   }
 
+  dimension: lead_source {
+    type: string
+    sql:
+        CASE
+          WHEN ${age} < 20 THEN 'Facebook'
+          WHEN ${age} >= 20 AND ${age} < 30 THEN 'Google Ads'
+          WHEN ${age} >= 30 AND ${age} < 40 THEN 'Organic'
+          WHEN ${age} >= 40 AND ${age} < 50 THEN 'Refferal Program'
+          ELSE 'Other'
+        END
+
+    ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [id, last_name, first_name, orders.count, user_data.count]
   }
+
 }

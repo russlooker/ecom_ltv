@@ -33,6 +33,7 @@ view: user_facts {
   dimension: total_revenue_in_first_30_days {
     type: number
     sql: COALESCE(${TABLE}.total_revenue_in_first_30_days,0) ;;
+    value_format_name: usd
   }
 
   dimension: order_count {
@@ -48,8 +49,8 @@ view: user_facts {
   measure: sum_total_revenue {
     type: sum
     sql: ${TABLE}.total_revenue ;;
+    value_format_name: usd
   }
-
 
   set: detail {
     fields: [id, orders_in_first_30_days, order_count, total_revenue]
