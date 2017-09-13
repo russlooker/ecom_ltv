@@ -44,6 +44,7 @@ view: user_facts {
   dimension: total_revenue {
     type: number
     sql: ${TABLE}.total_revenue ;;
+    value_format_name: usd
   }
 
   measure: sum_total_revenue {
