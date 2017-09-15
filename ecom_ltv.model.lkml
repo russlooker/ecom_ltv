@@ -23,6 +23,6 @@ explore: order_items {
   }
   join: ltv_predictions {
     relationship: one_to_one
-    sql_on: ${orders.user_id} = ${ltv_predictions.user_id} ;;
+    sql_on: ${users.id} = ${ltv_predictions.user_id} ;;
   }
 }
